@@ -1,5 +1,7 @@
+// prisma/schema.prisma
+
 datasource db {
-  provider = "postgresql"
+  provider = "postgresql" // or any other supported DB (e.g., mysql, sqlite)
   url      = env("DATABASE_URL")
 }
 
@@ -8,7 +10,26 @@ generator client {
 }
 
 model User {
-  id    Int    @id @default(autoincrement())
-  name  String
-  email String @unique
+  id       Int       @id @default(autoincrement())
+  email    String    @unique
+  password String
+  name     String
+  // Add any other user fields needed
+  Account  Account[]
+  Session  Session[]
+}
+
+model Account {
+  id                Int    @id @default(autoincrement())
+  userId            Int
+  provider          String
+  providerAccountId String
+  user              User   @relation(fields: [userId], references: [id])
+}
+
+model Session {
+  id      Int      @id @default(autoincrement())
+  userId  Int
+  expires DateTime
+  user    User     @relation(fields: [userId], references: [id])
 }

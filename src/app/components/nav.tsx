@@ -18,28 +18,38 @@ const Sidebar: React.FC = () => {
       <nav style={styles.navMenu}>
         <ul style={styles.menuList}>
           <li style={styles.menuItem}>
-            <Link href="/dashboard" style={styles.link}>
-              <span style={styles.icon}>🏠</span> Dashboard
+            <Link href="/dashboard" legacyBehavior>
+              <a style={styles.link}>
+                <span style={styles.icon}>🏠</span> Dashboard
+              </a>
             </Link>
           </li>
           <li style={styles.menuItem}>
-            <Link href="/inventory" style={styles.link}>
-              <span style={styles.icon}>🔧</span> Inventory
+            <Link href="/inventory" legacyBehavior>
+              <a style={styles.link}>
+                <span style={styles.icon}>🔧</span> Inventory
+              </a>
             </Link>
           </li>
           <li style={styles.menuItem}>
-            <Link href="/reports" style={styles.link}>
-              <span style={styles.icon}>📊</span> Reports
+            <Link href="/reports" legacyBehavior>
+              <a style={styles.link}>
+                <span style={styles.icon}>📊</span> Reports
+              </a>
             </Link>
           </li>
           <li style={styles.menuItem}>
-            <Link href="/purchase-orders" style={styles.link}>
-              <span style={styles.icon}>📄</span> Purchase Orders
+            <Link href="/purchase-orders" legacyBehavior>
+              <a style={styles.link}>
+                <span style={styles.icon}>📄</span> Purchase Orders
+              </a>
             </Link>
           </li>
           <li style={styles.menuItem}>
-            <Link href="/sales-invoice" style={styles.link}>
-              <span style={styles.icon}>🧾</span> Sales Invoice
+            <Link href="/sales-invoice" legacyBehavior>
+              <a style={styles.link}>
+                <span style={styles.icon}>🧾</span> Sales Invoice
+              </a>
             </Link>
           </li>
         </ul>
@@ -48,7 +58,7 @@ const Sidebar: React.FC = () => {
   );
 };
 
-const styles: { [key: string]: React.CSSProperties } = {
+const styles: Record<string, React.CSSProperties> = {
   sidebar: {
     width: "250px",
     height: "100vh",
